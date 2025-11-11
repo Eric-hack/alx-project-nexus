@@ -2,7 +2,7 @@
 
 **Repository Name:** `alx-project-nexus`  
 **Program:** ProDev Backend Engineering  
-**Duration:** November 10 – November 17, 2025  
+**Duration:** November 10 – December 02, 2025  
 
 ---
 
