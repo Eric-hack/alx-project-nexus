@@ -1,0 +1,105 @@
+erDiagram
+    User ||--o{ Order : places
+    User ||--o{ Review : writes
+    User ||--o{ Cart : has
+    User {
+        int id PK
+        string email UK
+        string password_hash
+        string first_name
+        string last_name
+        string phone
+        datetime created_at
+        datetime updated_at
+        boolean is_active
+        boolean is_staff
+    }
+    
+    Category ||--o{ Product : contains
+    Category ||--o{ Category : "has subcategories"
+    Category {
+        int id PK
+        string name UK
+        string slug UK
+        text description
+        int parent_id FK
+        datetime created_at
+        datetime updated_at
+    }
+    
+    Product ||--o{ OrderItem : "ordered in"
+    Product ||--o{ Review : "has reviews"
+    Product ||--o{ CartItem : "added to"
+    Product ||--o{ ProductImage : "has images"
+    Product }o--|| Category : "belongs to"
+    Product {
+        int id PK
+        string name
+        string slug UK
+        text description
+        decimal price
+        int stock_quantity
+        int category_id FK
+        string sku UK
+        boolean is_active
+        datetime created_at
+        datetime updated_at
+    }
+    
+    ProductImage {
+        int id PK
+        int product_id FK
+        string image_url
+        string alt_text
+        boolean is_primary
+        int display_order
+        datetime created_at
+    }
+    
+    Order ||--|{ OrderItem : contains
+    Order {
+        int id PK
+        int user_id FK
+        string order_number UK
+        decimal total_amount
+        string status
+        text shipping_address
+        text billing_address
+        datetime created_at
+        datetime updated_at
+    }
+    
+    OrderItem {
+        int id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+        decimal subtotal
+    }
+    
+    Cart ||--|{ CartItem : contains
+    Cart {
+        int id PK
+        int user_id FK
+        datetime created_at
+        datetime updated_at
+    }
+    
+    CartItem {
+        int id PK
+        int cart_id FK
+        int product_id FK
+        int quantity
+        datetime added_at
+    }
+    
+    Review {
+        int id PK
+        int user_id FK
+        int product_id FK
+        int rating
+        text comment
+        datetime created_at
+        datetime updated_at
+    }
