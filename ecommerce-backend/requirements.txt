@@ -1,0 +1,26 @@
+# Core Django
+Django==5.0.1
+djangorestframework==3.14.0
+psycopg2-binary>=2.9.10
+
+# Authentication
+djangorestframework-simplejwt==5.3.1
+
+# API Documentation
+drf-yasg==1.21.7
+
+# Filtering and Pagination
+django-filter==23.5
+
+# CORS Headers
+django-cors-headers==4.3.1
+
+# Environment Variables
+python-decouple==3.8
+
+# Production Server
+gunicorn==21.2.0
+whitenoise==6.6.0
+
+# Development Tools
+django-extensions==3.2.3
