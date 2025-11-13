@@ -1,0 +1,347 @@
+{
+	"id": "bdb1d987-3ddd-4f05-b621-b56cb410362f",
+	"name": "E-Commerce API",
+	"timestamp": "2025-11-13T08:20:04.980Z",
+	"collection_id": "48850044-345163c2-13ec-4f2c-a3a7-659a88d9368f",
+	"folder_id": 0,
+	"environment_id": "48850044-5531d2c0-6f53-48f5-a953-6a71b5e03877",
+	"totalPass": 6,
+	"delay": "500",
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-11-13T08:19:54.336Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "6a0eb0ef-36e2-48db-b334-1ac499219bdd",
+			"name": "Register User",
+			"url": "http://127.0.0.1:8000/api/auth/register/",
+			"time": 130,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				130
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "e51e4b5c-e42c-42f4-8da3-940f5f7b377c",
+			"name": "Login",
+			"url": "http://127.0.0.1:8000/api/auth/login/",
+			"time": 592,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Access token saved to environment": true,
+				"Refresh token saved to environment": true,
+				"Status code is 200": true,
+				"Response has access token": true,
+				"Token saved to environment": true,
+				"Response time is less than 700ms": true
+			},
+			"testPassFailCounts": {
+				"Access token saved to environment": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Refresh token saved to environment": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has access token": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Token saved to environment": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 700ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				592
+			],
+			"allTests": [
+				{
+					"Access token saved to environment": true,
+					"Refresh token saved to environment": true,
+					"Status code is 200": true,
+					"Response has access token": true,
+					"Token saved to environment": true,
+					"Response time is less than 700ms": true
+				}
+			]
+		},
+		{
+			"id": "50b5fcbd-dc47-4962-89de-723348d23e6d",
+			"name": "Get Profile",
+			"url": "http://127.0.0.1:8000/api/auth/profile/",
+			"time": 222,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				222
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "46b6e37e-236b-476c-8ad1-537beb4a8ef9",
+			"name": "List Products",
+			"url": "http://127.0.0.1:8000/api/products/",
+			"time": 123,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				123
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bde27372-a0c9-4542-a145-80814c834ea7",
+			"name": "List Products with Filters",
+			"url": "http://127.0.0.1:8000/api/products/?min_price=20&max_price=100&category=1&ordering=-price",
+			"time": 94,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				94
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "40782b31-506d-4278-ac75-13ce77e61c00",
+			"name": "Get Product Details",
+			"url": "http://127.0.0.1:8000/api/products/wireless-headphones/",
+			"time": 123,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				123
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "5a37efed-fbbb-466c-9c8a-e4e07dde667e",
+			"name": "Create Product",
+			"url": "http://127.0.0.1:8000/api/products/",
+			"time": 212,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				212
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "9ad99232-35d5-465d-af29-ff75b8ee12f1",
+			"name": "List Categories",
+			"url": "http://127.0.0.1:8000/api/categories/",
+			"time": 66,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				66
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "0199cdb1-88d1-48c6-a290-1a4c4cd66d51",
+			"name": "Get Category Products",
+			"url": "http://127.0.0.1:8000/api/categories/electronics/products/",
+			"time": 108,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				108
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "506c5241-a5dc-4a7e-bd49-ea614ea38912",
+			"name": "Get Cart",
+			"url": "http://127.0.0.1:8000/api/cart/",
+			"time": 99,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				99
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "57dd1699-bf20-4cd1-8294-3830de4186e0",
+			"name": "Add to Cart",
+			"url": "http://127.0.0.1:8000/api/cart/add/",
+			"time": 119,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				119
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "7ba31ee6-5f19-40d1-99dd-91b3bf1fb747",
+			"name": "List Orders",
+			"url": "http://127.0.0.1:8000/api/orders/",
+			"time": 111,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				111
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "095898c6-12f0-40f7-af75-99b27c58199a",
+			"name": "Create Order",
+			"url": "http://127.0.0.1:8000/api/orders/",
+			"time": 103,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				103
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 2102,
+	"collection": {
+		"requests": [
+			{
+				"id": "6a0eb0ef-36e2-48db-b334-1ac499219bdd",
+				"method": "POST"
+			},
+			{
+				"id": "e51e4b5c-e42c-42f4-8da3-940f5f7b377c",
+				"method": "POST"
+			},
+			{
+				"id": "50b5fcbd-dc47-4962-89de-723348d23e6d",
+				"method": "GET"
+			},
+			{
+				"id": "46b6e37e-236b-476c-8ad1-537beb4a8ef9",
+				"method": "GET"
+			},
+			{
+				"id": "bde27372-a0c9-4542-a145-80814c834ea7",
+				"method": "GET"
+			},
+			{
+				"id": "40782b31-506d-4278-ac75-13ce77e61c00",
+				"method": "GET"
+			},
+			{
+				"id": "5a37efed-fbbb-466c-9c8a-e4e07dde667e",
+				"method": "POST"
+			},
+			{
+				"id": "9ad99232-35d5-465d-af29-ff75b8ee12f1",
+				"method": "GET"
+			},
+			{
+				"id": "0199cdb1-88d1-48c6-a290-1a4c4cd66d51",
+				"method": "GET"
+			},
+			{
+				"id": "506c5241-a5dc-4a7e-bd49-ea614ea38912",
+				"method": "GET"
+			},
+			{
+				"id": "57dd1699-bf20-4cd1-8294-3830de4186e0",
+				"method": "POST"
+			},
+			{
+				"id": "7ba31ee6-5f19-40d1-99dd-91b3bf1fb747",
+				"method": "GET"
+			},
+			{
+				"id": "095898c6-12f0-40f7-af75-99b27c58199a",
+				"method": "POST"
+			}
+		]
+	}
+}
