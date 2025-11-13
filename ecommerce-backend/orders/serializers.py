@@ -91,7 +91,10 @@ class OrderCreateSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         """Create order with items."""
+        # Remove items from validated_data
         items_data = validated_data.pop('items')
+        
+        # Get user from request context
         user = self.context['request'].user
         
         # Calculate total
@@ -112,11 +115,12 @@ class OrderCreateSerializer(serializers.ModelSerializer):
                 'subtotal': subtotal
             })
         
-        # Create order
+        # Create order - only pass what's needed
         order = Order.objects.create(
             user=user,
             total_amount=total_amount,
-            **validated_data
+            shipping_address=validated_data.get('shipping_address', ''),
+            billing_address=validated_data.get('billing_address', '')
         )
         
         # Create order items and update stock
