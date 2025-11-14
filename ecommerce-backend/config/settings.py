@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from decouple import config
 from datetime import timedelta
@@ -147,3 +148,46 @@ SWAGGER_SETTINGS = {
     },
     'USE_SESSION_AUTH': False,
 }
+
+# Add this to the BOTTOM of config/settings.py
+
+# ========================================
+# PRODUCTION SETTINGS
+# ========================================
+
+import dj_database_url
+
+# Override database if DATABASE_URL exists (for Render)
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.parse(
+        os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
+
+# Security settings for production
+if not DEBUG:
+    # HTTPS settings
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    
+    # Trust Render's proxy
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all hosts in production (Render will handle this)
+if 'RENDER' in os.environ:
+    ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
+    
+# CORS settings for production
+if not DEBUG:
+    CORS_ALLOWED_ORIGINS = [
+        "https://your-frontend-domain.com",  # Update with your frontend URL
+    ]
+    CORS_ALLOW_ALL_ORIGINS = False  # Set to True only for testing
