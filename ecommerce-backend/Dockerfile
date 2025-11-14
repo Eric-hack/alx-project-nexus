@@ -4,7 +4,6 @@ FROM python:3.11-slim
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
-ENV PORT=8000
 
 # Set work directory
 WORKDIR /app
@@ -16,7 +15,6 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     musl-dev \
     libpq-dev \
-    netcat-traditional \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
@@ -27,11 +25,15 @@ RUN pip install -r requirements.txt
 # Copy project
 COPY . /app/
 
-# Make entrypoint executable
-RUN chmod +x /app/entrypoint.sh
+# Collect static files (this can run without database)
+RUN python manage.py collectstatic --noinput
 
 # Expose port
 EXPOSE 8000
 
-# Run entrypoint script
+# Create entrypoint script
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+# Run the application
 ENTRYPOINT ["/app/entrypoint.sh"]
